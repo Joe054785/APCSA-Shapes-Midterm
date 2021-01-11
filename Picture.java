@@ -2,8 +2,8 @@
 /**
  * Draw a pretty picture composed of shape objects on a canvas
  * 
- * @author: (Your name)
- * @version: (Date)
+ * @author: Joseph Hall
+ * @version: 1/11/21
  * 
  */
 import java.io.File;
@@ -154,7 +154,7 @@ public class Picture {
             filename = args[0];
         }
         else {
-            filename = "MyPicture.png";
+            filename = "Joseph_Hall_Water_Bag_Consumption.png";
         }
 
         // Save the picture to a file
