@@ -58,7 +58,7 @@ public class Picture {
         Canvas pic = Canvas.getCanvas();
 
         // Set the title and background for the picture
-        pic.setTitle("My Picture");
+        pic.setTitle("Water Bag Destruction");
         pic.setBackgroundColor("black");
         
         //Draw my picture
