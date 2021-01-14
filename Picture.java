@@ -30,14 +30,14 @@ public class Picture {
         central.moveVertical(150);
         
         //Claws
-        //Sets up arcs on top of central circle to look like claws/teeth
+        //Sets up arcs on top of the water bag to look like claws.
         for(int count = 115; count <=575 ; count+=40)
         {
             Arc a = new Arc(count, 160, 120, 20, 240, "white", true);
         }
         
         //Second set of claws
-        //Sets up arcs below the central circle to look like claws/teeth
+        //Sets up arcs below the water bag to look like claws.
         for(int count = 115; count <=575 ; count+=40)
         {
             Arc b = new Arc(count, 340, 120, 110, 20, "white", true);
@@ -60,8 +60,8 @@ public class Picture {
         Rect k = new Rect();
         k.makeVisible();
         k.moveHorizontal(65);
-        k.moveVertical(235);
-        k.changeSize(300, 30);
+        k.moveVertical(225);
+        k.changeSize(310, 30);
         k.changeColor("blue");
         
         //Makes the left "eye"
