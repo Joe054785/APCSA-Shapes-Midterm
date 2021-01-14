@@ -1,16 +1,58 @@
 
 /**
- * Draw a pretty picture composed of shape objects on a canvas
+ * Draws a monster destroying water bags.
  * 
  * @author: Joseph Hall
  * @version: 1/11/21
- * 
+ * Returns a picture
  */
 import java.io.File;
 import java.io.IOException;
 import java.lang.Math;
 
 public class Picture {
+    
+    //Circle Creator
+    public static void Circle(int distance1, int distance2, String color, int Size, boolean makeVisible)
+    {
+        Circle name = new Circle();
+        name.changeColor(color);
+        name.changeSize(Size);
+        name.moveHorizontal(distance1); //x-value
+        name.moveVertical(distance2); //y-value
+        if (makeVisible)
+        {
+            name.makeVisible();
+        }
+    }
+    
+    //Rectangle Creator
+    public static void Rectangle(int distance1, int distance2, String color, int Size1, int Size2, boolean makeVisible)
+    {
+        Rect name = new Rect();
+        name.moveHorizontal(distance1); //x-value
+        name.moveVertical(distance2); //y-value
+        name.changeSize(Size1, Size2);
+        name.changeColor(color);
+        if (makeVisible)
+        {
+            name.makeVisible();
+        }
+    }
+    
+    //Triangle Creator
+    public static void Triangle(int distance1, int distance2, String color, boolean makeVisible)
+    {
+        Triangle name = new Triangle();
+        name.moveHorizontal(distance1); //x-value
+        name.moveVertical(distance2); //y-value
+        name.changeColor(color);
+        if (makeVisible)
+        {
+            name.makeVisible();
+        }
+    }
+    
     public static void main(String[] args) {
         // Get a reference to the canvas for this drawing
         Canvas pic = Canvas.getCanvas();
@@ -18,16 +60,11 @@ public class Picture {
         // Set the title and background for the picture
         pic.setTitle("My Picture");
         pic.setBackgroundColor("black");
-
-        // Draw my picture
         
-        //Water Bag
-        Circle central = new Circle();
-        central.makeVisible();
-        central.changeColor("blue");
-        central.changeSize(120);
-        central.moveHorizontal(100);
-        central.moveVertical(150);
+        //Draw my picture
+        
+        //Central Water Bag
+        Circle(100, 150, "blue", 120, true);
         
         //Claws
         //Sets up arcs on top of the water bag to look like claws.
@@ -45,107 +82,38 @@ public class Picture {
         
         
         //Water streaming out of the water bag
-        Rect i = new Rect();
-        i.makeVisible();
-        i.moveHorizontal(-325);
-        i.moveVertical(165);
-        i.changeSize(30, 350);
-        i.changeColor("blue");
-        Rect j = new Rect();
-        j.makeVisible();
-        j.moveHorizontal(135);
-        j.moveVertical(165);
-        j.changeSize(30, 360);
-        j.changeColor("blue");
-        Rect k = new Rect();
-        k.makeVisible();
-        k.moveHorizontal(65);
-        k.moveVertical(225);
-        k.changeSize(310, 30);
-        k.changeColor("blue");
+        Rectangle(-325, 165, "blue", 30, 350, true);
+        Rectangle(135, 165, "blue", 30, 360, true);
+        Rectangle(65, 225, "blue", 310, 30, true);
         
         //Makes the left "eye"
-        Triangle c = new Triangle();
-        c.makeVisible();
-        c.moveHorizontal(40);
-        c.moveVertical(-100);
-        c.changeColor("red");
+        Triangle(40, -100, "red", true);
         
         //Makes the right "eye"
-        Triangle d = new Triangle();
-        d.makeVisible();
-        d.moveHorizontal(340);
-        d.moveVertical(-100);
-        d.changeColor("red");
+        Triangle(340, -100, "red", true);
         
         //Determines color of third & fourth central "eyes"
         double number = (double)(Math.random() * 10);
         if(number > 5)
         {
-            Triangle f = new Triangle();
-            f.makeVisible();
-            f.moveHorizontal(140);
-            f.moveVertical(-100);
-            f.changeColor("red");
-            Triangle g = new Triangle();
-            g.makeVisible();
-            g.moveHorizontal(240);
-            g.moveVertical(-100);
-            g.changeColor("red");
+            Triangle(140, -100, "red", true);
+            Triangle(240, -100, "red", true);
         }
         else
         {
-            Triangle f = new Triangle();
-            f.makeVisible();
-            f.moveHorizontal(140);
-            f.moveVertical(-100);
-            f.changeColor("blue");
-            Triangle g = new Triangle();
-            g.makeVisible();
-            g.moveHorizontal(240);
-            g.moveVertical(-100);
-            g.changeColor("blue");
+            Triangle(140, -100, "blue", true);
+            Triangle(240, -100, "blue", true);
         }
         
-        //More Water Bags in the bottom left corner
-        Circle bottomleft1 = new Circle();
-        bottomleft1.makeVisible();
-        bottomleft1.changeColor("blue");
-        bottomleft1.changeSize(60);
-        bottomleft1.moveHorizontal(-200);
-        bottomleft1.moveVertical(400);
-        Circle bottomleft2 = new Circle();
-        bottomleft2.makeVisible();
-        bottomleft2.changeColor("blue");
-        bottomleft2.changeSize(60);
-        bottomleft2.moveHorizontal(-180);
-        bottomleft2.moveVertical(360);
-        Circle bottomleft3 = new Circle();
-        bottomleft3.makeVisible();
-        bottomleft3.changeColor("blue");
-        bottomleft3.changeSize(60);
-        bottomleft3.moveHorizontal(-160);
-        bottomleft3.moveVertical(400);
+        //Tree Water Bags in the bottom left corner in a pile
+        Circle(-200, 400, "blue", 60, true);
+        Circle(-180, 360, "blue", 60, true);
+        Circle(-160, 400, "blue", 60, true);
         
-        //More water bags in the bottom right corner
-        Circle bottomright1 = new Circle();
-        bottomright1.makeVisible();
-        bottomright1.changeColor("blue");
-        bottomright1.changeSize(60);
-        bottomright1.moveHorizontal(430);
-        bottomright1.moveVertical(400);
-        Circle bottomright2 = new Circle();
-        bottomright2.makeVisible();
-        bottomright2.changeColor("blue");
-        bottomright2.changeSize(60);
-        bottomright2.moveHorizontal(450);
-        bottomright2.moveVertical(360);
-        Circle bottomright3 = new Circle();
-        bottomright3.makeVisible();
-        bottomright3.changeColor("blue");
-        bottomright3.changeSize(60);
-        bottomright3.moveHorizontal(470);
-        bottomright3.moveVertical(400);
+        //Three water bags in the bottom right corner in a pile
+        Circle(430, 400, "blue", 60, true);
+        Circle(450, 360, "blue", 60, true);
+        Circle(470, 400, "blue", 60, true);
        
         // Get the filename to save to from the command line arguments, defaulting to
         // MyPicture.png if no argument is given
